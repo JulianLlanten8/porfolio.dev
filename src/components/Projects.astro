@@ -2,6 +2,7 @@
 import GitHub from "./icons/GitHub.astro";
 import VueJS from "./icons/VueJs.astro";
 import Sass from "./icons/Sass.astro";
+import CSS from "./icons/CSS.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -16,6 +17,11 @@ const TAGS = {
     class: "bg-cyan-500 text-white",
     icon: Sass,
   },
+  CSS: {
+    name: "Tailwind CSS",
+    class: "bg-blue-500 text-white",
+    icon: CSS,
+  },
 };
 const PROJECTS = [
   {
@@ -29,12 +35,12 @@ const PROJECTS = [
     tags: [TAGS.VUE, TAGS.TAILWIND],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "Grabador de pantalla y audio en la web",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.VUE, TAGS.TAILWIND],
+      "Grabador de pantalla en la web. Creado con Vue.js y Tailwind CSS. Utilizando la API de MediaRecorder para grabar la pantalla y el audio.",
+    link: "https://graba-midu-lian.vercel.app/",
+    image: "/projects/graba-midu-lian.webp",
+    tags: [TAGS.VUE, TAGS.CSS],
   },
 ];
 ---
