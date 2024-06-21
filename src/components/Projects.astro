@@ -2,6 +2,7 @@
 import GitHub from "./icons/GitHub.astro";
 import VueJS from "./icons/VueJs.astro";
 import Sass from "./icons/Sass.astro";
+import Javascript from "./icons/Javascript.astro";
 import CSS from "./icons/CSS.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
@@ -22,6 +23,11 @@ const TAGS = {
     class: "bg-blue-500 text-white",
     icon: CSS,
   },
+  Javascript: {
+    name: "Javascript",
+    class: "bg-yellow-600 text-white",
+    icon: Javascript,
+  },
 };
 const PROJECTS = [
   {
@@ -37,10 +43,10 @@ const PROJECTS = [
   {
     title: "Grabador de pantalla y audio en la web",
     description:
-      "Grabador de pantalla en la web. Creado con Vue.js y Tailwind CSS. Utilizando la API de MediaRecorder para grabar la pantalla y el audio.",
+      "Grabador de pantalla en la web. Creado con javascrip y CSS. Utilizando la API de MediaRecorder para grabar la pantalla y el audio.",
     link: "https://graba-midu-lian.vercel.app/",
     image: "/projects/graba-midu-lian.webp",
-    tags: [TAGS.VUE, TAGS.CSS],
+    tags: [TAGS.Javascript, TAGS.CSS],
   },
 ];
 ---
