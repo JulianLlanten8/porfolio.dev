@@ -89,13 +89,21 @@ const navItems = [
 </script>
 
 <style>
+  @reference "@/styles/global.css";
   nav {
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
-
-  @keyframes nav-shadown {
+  
+  keyframes nav-shadown {
+    from {
+      @apply shadow-none ring-0 backdrop-blur-none bg-transparent;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
     to {
       @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
     }
