@@ -1,0 +1,22 @@
+{
+  "name": "Hugo Julian Llanten Idrobo - Portfolio",
+  "short_name": "Julian Portfolio",
+  "description": "Portfolio personal de Hugo Julian Llanten Idrobo - Desarrollador Full Stack",
+  "icons": [
+    {
+      "src": "/julian.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

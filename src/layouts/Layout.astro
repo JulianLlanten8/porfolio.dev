@@ -19,22 +19,21 @@ const { description, title, keywords } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Hugo Julian Llanten Idrobo" />
+    <meta name="theme-color" content="#000000" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/public/julian.png" />
-    <meta name="twitter:site" content="@hugojulians" />
-    <meta name="twitter:creator" content="@hugojulians" />
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/julian.png" />
+    <link rel="apple-touch-icon" href="/julian.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
@@ -42,8 +41,16 @@ const { description, title, keywords } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="/public/julian.png" />
+    <meta property="og:image" content={`${Astro.url.origin}/julian.png`} />
     <meta property="og:site_name" content="Hugo Julian llanten Idrobo" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${Astro.url.origin}/julian.png`} />
+    <meta name="twitter:site" content="@hugojulians" />
+    <meta name="twitter:creator" content="@hugojulians" />
 
     <title>{title}</title>
     <ViewTransitions />

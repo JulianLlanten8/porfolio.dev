@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /favicon.svg
+Allow: /julian.png
+Allow: /site.webmanifest
+
+Sitemap: https://porfolio.dev/sitemap.xml
