@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.julianllanten.dev/</loc>
+    <loc>https://www.julianll.dev/</loc>
+    <lastmod>2025-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.julianllanten.dev/#experiencia</loc>
+    <loc>https://www.julianll.dev/#proyectos</loc>
+    <lastmod>2025-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.julianllanten.dev/#proyectos</loc>
-  </url>
-  <url>
-    <loc>https://www.julianllanten.dev/#sobre-mi</loc>
+    <loc>https://www.julianll.dev/#sobre-mi</loc>
+    <lastmod>2025-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
