@@ -4,4 +4,4 @@ Allow: /favicon.svg
 Allow: /julian.png
 Allow: /site.webmanifest
 
-Sitemap: https://porfolio.dev/sitemap.xml
+Sitemap: https://julianll.dev/sitemap.xml
