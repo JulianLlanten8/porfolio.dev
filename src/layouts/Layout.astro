@@ -17,6 +17,17 @@ const { description, title, keywords } = Astro.props;
 
 <!doctype html>
 <html lang="es">
+  <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "{{ Astro.url }}",
+      "image": "{{ Astro.url.origin }}/julian.png",
+      "logo": "{{ Astro.url.origin }}/favicon.svg"
+    }}
+  </script>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
