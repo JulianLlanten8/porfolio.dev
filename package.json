@@ -14,9 +14,9 @@
     "@astrojs/tailwind": "6.0.2",
     "@fontsource-variable/onest": "5.2.8",
     "@tailwindcss/vite": "^4.1.7",
-    "astro": "5.8.0",
+    "astro": "5.10.0",
     "astro-robots-txt": "1.0.0",
-    "tailwindcss": "4.1.7",
+    "tailwindcss": "4.1.10",
     "typescript": "5.8.3"
   }
 }

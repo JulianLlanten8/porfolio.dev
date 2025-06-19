@@ -3,7 +3,7 @@ import "@fontsource-variable/onest";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 import "@/styles/global.css";
 
 interface Props {
@@ -17,17 +17,6 @@ const { description, title, keywords } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-  <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "{{ title }}",
-      "description": "{{ description }}",
-      "url": "{{ Astro.url }}",
-      "image": "{{ Astro.url.origin }}/julian.png",
-      "logo": "{{ Astro.url.origin }}/favicon.svg"
-    }}
-  </script>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -68,7 +57,7 @@ const { description, title, keywords } = Astro.props;
     <meta name="twitter:creator" content="@hugojulians" />
 
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body class="relative text-black dark:text-white">
@@ -98,7 +87,7 @@ const { description, title, keywords } = Astro.props;
         min-height: 100vh;
         overscroll-behavior: none;
       }
-
+      
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
