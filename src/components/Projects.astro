@@ -8,6 +8,7 @@ import React from "./icons/React.astro";
 import CSS from "./icons/CSS.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
+import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS = {
   VUE: {
@@ -16,9 +17,9 @@ const TAGS = {
     icon: VueJS,
   },
   TAILWIND: {
-    name: "Sass",
-    class: "bg-pink-100 text-pink-900 dark:bg-pink-900 dark:text-pink-100",
-    icon: Sass,
+    name: "Tailwind CSS",
+    class: "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100",
+    icon: Tailwind,
   },
   CSS: {
     name: "CSS",
@@ -51,7 +52,7 @@ const PROJECTS = [
     link: "https://rick-and-morty-eql4u8x3h-rick-morty.vercel.app/",
     github: "https://github.com/https-github-com-JLlanten8/rick-and-morty",
     image: "/projects/llantenJulian08-Rick&morty.webp",
-    tags: [TAGS.VUE, TAGS.TAILWIND],
+    tags: [TAGS.VUE, TAGS.CSS],
   },
   {
     title: "Grabador de pantalla y audio en la web",
@@ -73,6 +74,14 @@ const PROJECTS = [
     link: "https://pokemon-game.julianll.dev/",
     image: "/projects/pokemon-game.webp",
     tags: [TAGS.VUE, TAGS.TypeScript, TAGS.CSS],
+  },
+  {
+    title: "Si o no ? - Aplicación de toma de decisiones",
+    description: "Aplicación de toma de decisiones. Creada con Vue.js y CSS. Utilizando la API de yes/no para tomar decisiones.",
+    link: "https://si-o-no.julianll.dev/",
+    image: "/projects/si-o-no.webp",
+    tags: [TAGS.VUE, TAGS.CSS,TAGS.TAILWIND],
+    github: "https://github.com/JulianLlanten8/Vue.js-De-cero-a-experto-indecision-app",
   },
 ];
 ---
