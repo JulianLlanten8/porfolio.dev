@@ -13,11 +13,11 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/tailwind": "6.0.2",
-    "@fontsource-variable/onest": "5.2.8",
-    "@tailwindcss/vite": "^4.1.7",
-    "astro": "5.10.0",
+    "@fontsource-variable/onest": "5.2.11",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "5.14.1",
     "astro-robots-txt": "1.0.0",
-    "tailwindcss": "4.1.10",
-    "typescript": "5.8.3"
+    "tailwindcss": "4.1.13",
+    "typescript": "5.9.2"
   }
 }
