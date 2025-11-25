@@ -8,6 +8,7 @@ import CSS from "./icons/CSS.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import NextJS from "./icons/NextJS.astro";
 
 const TAGS = {
   VUE: {
@@ -40,6 +41,11 @@ const TAGS = {
     name: "React",
     class: "bg-cyan-100 text-cyan-900 dark:bg-cyan-900 dark:text-cyan-100",
     icon: React,
+  },
+  NextJS: {
+    name: "Next.js",
+    class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-100",
+    icon: NextJS,
   },
 };
 const PROJECTS = [
@@ -92,12 +98,12 @@ const PROJECTS = [
     github: "https://github.com/JulianLlanten8/Vue.js-De-cero-a-experto-indecision-app",
   },
   {
-    title: "Game of Thrones - Lista de personajes",
-    description: "Lista de personajes de la serie Game of Thrones. Creada con Vue.js y CSS. Consumiendo la API de Game of Thrones.",
-    link: "https://game-of-thrones.julianll.dev/",
-    image: "/projects/game-of-thrones.webp",
-    tags: [TAGS.VUE, TAGS.CSS],
-    github: "https://github.com/JulianLlanten8/game-of-trones"
+    title: "skyconnect-explorer",
+    description: "Explorador de vuelos. Creado con Next. Utilizando la API de SkyScanner para buscar Aeropuertos.",
+    link: "https://skyconnect-explorer.vercel.app/",
+    image: "/projects/sky-connect-explorer.webp",
+    tags: [TAGS.NextJS, TAGS.TypeScript, TAGS.TAILWIND],
+    github: "https://github.com/JulianLlanten8/skyconnect-explorer"
   },
 
 ];
