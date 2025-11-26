@@ -3,7 +3,9 @@ const personalImageAlt = "Julian Llanten, Anilista, Diseñador y desarrollador d
 import Badge from "@/components/Badge.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
+import Download from "@/components/icons/Download.astro";
 import SocialPill from "@/components/SocialPill.astro";
+import DownloadPill from "@/components/DownloadPill.astro";
 ---
 
 <div class="max-w-xl">
@@ -40,12 +42,18 @@ import SocialPill from "@/components/SocialPill.astro";
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="mailto:llantenjulian8@gmail.com">
-      <MailIcon class="size-4" />
+      <MailIcon class="size-4 md:size-6" />
       Contáctame
     </SocialPill>
     <SocialPill href="https://linkedin.com/in/julianllanten">
     <LinkedInIcon class="size-4 md:size-6" />
       LinkedIn
     </SocialPill>
+    <DownloadPill 
+      href="/Hugo_Julian_Llanten-CV.pdf" 
+      download>
+      <Download class="size-4 md:size-6" />
+      Currículum Vitae
+    </DownloadPill>
   </nav>
 </div>
