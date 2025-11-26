@@ -1,9 +1,9 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-const EXPERIENCIE = [
+const EXPERIENCE = [
   {
     date: "Actualmente...",
-    title: "Frelancer Fullstack Developer",
+    title: "Freelancer Fullstack Developer",
     company: "Alizasoft",
     description:
       "Analizo e implemento soluciones para mejorar la experiencia de usuario en la plataforma de Alizasoft y en la web de la empresa.",
@@ -23,16 +23,16 @@ const EXPERIENCIE = [
     company: "Sennova",
     link: "http://sennova.senaedu.edu.co/SENNOVA_OFICIAL/#LineaProgramatica",
     description:
-      "Analize e implemente soluciones para uno de los proyectos de la línea de investigación de Sennova en la cual tenia un backoffice para la gestión de los eventos y su herramienta de registro, también el front-end para la visualización de los eventos y su registro.",
+      "Analicé e implemente soluciones para uno de los proyectos de la línea de investigación de Sennova en la cual tenia un backoffice para la gestión de los eventos y su herramienta de registro, también el front-end para la visualización de los eventos y su registro.",
   },
 ];
 ---
 
 <ol class="relative mt-16">
   {
-    EXPERIENCIE.map((experiencie) => (
+    EXPERIENCE.map((experience) => (
       <li class="">
-        <ExperienceItem {...experiencie} />
+        <ExperienceItem {...experience} />
       </li>
     ))
   }

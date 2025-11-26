@@ -8,11 +8,13 @@ import SocialPill from "@/components/SocialPill.astro";
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4">
-     <picture class="rounded-full shadow-lg object-cover w-16 aspect-4/3"> 
+     <picture class="block rounded-full shadow-lg w-16 h-16 overflow-hidden"> 
         <img
-        class="rounded-full shadow-lg size-16 aspect-3/2"
-        src="/julian.avif"
-        alt={personalImageAlt}
+          class="w-full h-full object-cover rounded-full"
+          src="/julian.avif"
+          alt={personalImageAlt}
+          width="64"
+          height="64"
         />
       </picture>
     <a
