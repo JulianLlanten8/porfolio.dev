@@ -1,120 +1,25 @@
 ---
-import GitHub from "./icons/GitHub.astro";
-import VueJS from "./icons/VueJs.astro";
-import Javascript from "./icons/Javascript.astro";
-import TypeScript from "./icons/TypeScript.astro";
-import React from "./icons/React.astro";
-import CSS from "./icons/CSS.astro";
-import Link from "./icons/Link.astro";
-import LinkButton from "./LinkButton.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import NextJS from "./icons/NextJS.astro";
+import { PROJECTS, TAGS } from '@/data/projects'
+import GitHub from './icons/GitHub.astro'
+import VueJS from './icons/VueJs.astro'
+import Javascript from './icons/Javascript.astro'
+import TypeScript from './icons/TypeScript.astro'
+import React from './icons/React.astro'
+import CSS from './icons/CSS.astro'
+import Link from './icons/Link.astro'
+import LinkButton from './LinkButton.astro'
+import Tailwind from './icons/Tailwind.astro'
+import NextJS from './icons/NextJS.astro'
 
-const TAGS = {
-  VUE: {
-    name: "Vue.js",
-    class: "bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100",
-    icon: VueJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100",
-    icon: Tailwind,
-  },
-  CSS: {
-    name: "CSS",
-    class: "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100",
-    icon: CSS,
-  },
-  Javascript: {
-    name: "Javascript",
-    class: "bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-100",
-    icon: Javascript,
-  },
-
-  TypeScript: {
-    name: "TypeScript",
-    class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-100",
-    icon: TypeScript,
-  },
-  React: {
-    name: "React",
-    class: "bg-cyan-100 text-cyan-900 dark:bg-cyan-900 dark:text-cyan-100",
-    icon: React,
-  },
-  NextJS: {
-    name: "Next.js",
-    class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-100",
-    icon: NextJS,
-  },
-};
-const PROJECTS = [
-  {
-    title: "IA en el navegador - Chrome Built-in AI",
-    description:
-      "Herramienta web que explora las nuevas APIs de IA integradas en el navegador (Chrome Built-in AI): traductor, corrector, summarizer y más funcionalidades nativas sin depender de servidores externos. Creada con Vue.js y Tailwind CSS.",
-    link: "https://ia.julianll.dev/",
-    image: "/projects/ia_browser_preview.png",
-    tags: [TAGS.VUE, TAGS.Javascript, TAGS.TAILWIND, TAGS.CSS],
-  },
-  {
-    title: "Tienda Virtual - E-commerce de productos",
-    description:
-      "Tienda virtual de productos. Creada con React. Implementando funcionalidades de carrito de compras, filtros y búsqueda de productos.",
-    link: "https://teslo-shop.julianll.dev/",
-    github: "https://github.com/JulianLlanten8/RoadMapReact/tree/main/teslo-shop",
-    image: "/projects/teslo-shop.webp",
-    tags: [TAGS.React, TAGS.TAILWIND, TAGS.TypeScript],
-  },
-  {
-    title:
-      "Lista de de todos los personajes de la serie animada Rick and Morty",
-    description:
-      "Lista de todos los personajes de la serie animada Rick and Morty. Creada con Vue.js y Sass CSS. Consumiendo la API de Rick and Morty.",
-    link: "https://rick-and-morty-eql4u8x3h-rick-morty.vercel.app/",
-    github: "https://github.com/https-github-com-JLlanten8/rick-and-morty",
-    image: "/projects/llantenJulian08-Rick&morty.webp",
-    tags: [TAGS.VUE, TAGS.CSS],
-  },
-  {
-    title: "Grabador de pantalla y audio en la web",
-    description: "Grabador de pantalla en la web. Creado con javascrip y CSS. Utilizando la API de MediaRecorder para grabar la pantalla y el audio.",
-    link: "https://grabador-de-pantalla.julianll.dev/",
-    image: "/projects/graba-midu-lian.webp",
-    tags: [TAGS.Javascript, TAGS.CSS],
-  },
-  {
-    title: "Buscador de GIFs",
-    description: "Buscador de GIFs. Creado con TypeScript y React. Utilizando la API de Giphy para buscar GIFs.",
-    link: "https://gif-app.julianll.dev/",
-    image: "/projects/gif-app.webp",
-    tags: [TAGS.React, TAGS.TypeScript, TAGS.CSS],
-  },
-  {
-    title: "Pokemon Game - Juego de Pokemon",
-    description: "Adivina el Pokemon. Juego de adivinanza de Pokemon. Creado con Vue y TypeScript. Utilizando la API de PokeAPI para obtener los datos de los Pokemon.",
-    link: "https://pokemon-game.julianll.dev/",
-    image: "/projects/pokemon-game.webp",
-    tags: [TAGS.VUE, TAGS.TypeScript, TAGS.CSS],
-  },
-  {
-    title: "Si o no ? - Aplicación de toma de decisiones",
-    description: "Aplicación de toma de decisiones. Creada con Vue.js y CSS. Utilizando la API de yes/no para tomar decisiones.",
-    link: "https://si-o-no.julianll.dev/",
-    image: "/projects/si-o-no.webp",
-    tags: [TAGS.VUE, TAGS.CSS,TAGS.TAILWIND],
-    github: "https://github.com/JulianLlanten8/Vue.js-De-cero-a-experto-indecision-app",
-  },
-  {
-    title: "skyconnect-explorer",
-    description: "Explorador de vuelos. Creado con Next. Utilizando la API de SkyScanner para buscar Aeropuertos.",
-    link: "https://skyconnect-explorer.vercel.app/",
-    image: "/projects/sky-connect-explorer.webp",
-    tags: [TAGS.NextJS, TAGS.TypeScript, TAGS.TAILWIND],
-    github: "https://github.com/JulianLlanten8/skyconnect-explorer"
-  },
-
-];
+const TAG_ICONS = {
+  VUE: VueJS,
+  TAILWIND: Tailwind,
+  CSS: CSS,
+  JAVASCRIPT: Javascript,
+  TYPESCRIPT: TypeScript,
+  REACT: React,
+  NEXTJS: NextJS,
+}
 ---
 
 <div class="flex flex-col gap-y-20">
@@ -139,16 +44,18 @@ const PROJECTS = [
           </h3>
           <div class="flex flex-col mt-3 gap-3">
             <ul class="flex flex-row flex-wrap gap-2">
-              {tags.map((tag) => (
-                <li>
-                  <span
-                    class={`flex items-center gap-x-1.5 rounded-full text-xs font-medium ${tag.class} py-1 px-2.5 `}
-                  >
-                    <tag.icon class="size-3.5" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
+              {tags.map((tagKey) => {
+                const tag = TAGS[tagKey]
+                const Icon = TAG_ICONS[tagKey]
+                return (
+                  <li>
+                    <span class={`flex items-center gap-x-1.5 rounded-full text-xs font-medium ${tag.class} py-1 px-2.5`}>
+                      <Icon class="size-3.5" />
+                      {tag.name}
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
 
             <p class="text-gray-600 dark:text-gray-400 leading-relaxed">

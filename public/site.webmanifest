@@ -4,9 +4,9 @@
   "description": "Portfolio personal de Hugo Julian Llanten Idrobo - Desarrollador Full Stack",
   "icons": [
     {
-      "src": "/julian.png",
+      "src": "/julian.avif",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "any maskable"
     },
     {
