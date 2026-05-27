@@ -1,32 +1,29 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-
-import AboutMe from "@/components/AboutMe.astro";
-import Briefcase from "@/components/icons/Briefcase.astro";
-import CodeIcon from "@/components/icons/Code.astro";
-import Experience from "@/components/Experience.astro";
-import ProfileCheck from "@/components/icons/ProfileCheck.astro";
-import Projects from "@/components/Projects.astro";
-import SectionContainer from "@/components/SectionContainer.astro";
-import Hero from "@/components/Hero.astro";
+import Layout from '@/layouts/Layout.astro'
+import { PERSONAL } from '@/config/personal'
+import Hero from '@/components/Hero.astro'
+import Experience from '@/components/Experience.astro'
+import Projects from '@/components/Projects.astro'
+import AboutMe from '@/components/AboutMe.astro'
+import SectionContainer from '@/components/SectionContainer.astro'
+import Briefcase from '@/components/icons/Briefcase.astro'
+import CodeIcon from '@/components/icons/Code.astro'
+import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 ---
 
 <Layout
-  title="Hugo Julian Llanten | Desarrollador Full Stack Laravel + Vue con 4 años de experiencia"
+  title={`${PERSONAL.name} | Desarrollador Full Stack Laravel + Vue con 4 años de experiencia`}
   description="Contrata a Julian Llanten para crear tu idea en un proyecto real, con experiencia en desarrollo de software y diseño de interfaces"
   keywords="Desarrollador web, Desarrollador de software, Diseñador de interfaces, Hugo Julian Llanten Idrobo, JavaScript, React, Nodejs, Vuejs, Astro, HTML, CSS, Laravel, Php, SQL, Figma, Adobe XD"
-  >
-  <div class="mx-auto max-w-4xl px-4">
-    <main>
-      <SectionContainer class="py-16 md:py-36">
-        <Hero />
-      </SectionContainer>
-    </main>
+>
+  <main class="mx-auto max-w-4xl px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero />
+    </SectionContainer>
+
     <div class="space-y-28">
       <SectionContainer id="experiencia">
-        <h2
-          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white"
-        >
+        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
           <Briefcase class="size-8 text-yellow-500" />
           Experiencia laboral
         </h2>
@@ -34,9 +31,7 @@ import Hero from "@/components/Hero.astro";
       </SectionContainer>
 
       <SectionContainer id="proyectos">
-        <h2
-          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white"
-        >
+        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
           <CodeIcon class="size-7 text-yellow-500" />
           Proyectos
         </h2>
@@ -44,14 +39,12 @@ import Hero from "@/components/Hero.astro";
       </SectionContainer>
 
       <SectionContainer id="sobre-mi">
-        <h2
-          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white"
-        >
+        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
           <ProfileCheck class="size-8 text-yellow-500" />
           Sobre mí
         </h2>
         <AboutMe />
       </SectionContainer>
     </div>
-  </div>
+  </main>
 </Layout>

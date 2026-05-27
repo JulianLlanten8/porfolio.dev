@@ -1,9 +1,3 @@
-export interface Tag {
-  name: string
-  class: string
-  iconName: string
-}
-
 export interface Project {
   title: string
   description: string
@@ -29,3 +23,4 @@ export type TagKey =
   | 'TYPESCRIPT'
   | 'REACT'
   | 'NEXTJS'
+  | 'LARAVEL'

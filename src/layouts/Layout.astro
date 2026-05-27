@@ -1,18 +1,18 @@
 ---
-import "@fontsource-variable/onest";
-
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { ClientRouter } from 'astro:transitions';
-import "@/styles/global.css";
+import '@fontsource-variable/onest'
+import { ClientRouter } from 'astro:transitions'
+import { PERSONAL } from '@/config/personal'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import '@/styles/global.css'
 
 interface Props {
-  title: string;
-  description: string;
-  keywords: string;
+  title: string
+  description: string
+  keywords: string
 }
 
-const { description, title, keywords } = Astro.props;
+const { description, title, keywords } = Astro.props
 ---
 
 <!doctype html>
@@ -23,16 +23,16 @@ const { description, title, keywords } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Hugo Julian Llanten Idrobo" />
+    <meta name="author" content={PERSONAL.fullName} />
     <meta name="theme-color" content="#000000" />
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/julian.avif" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/julian.avif" />
+    <link rel="apple-touch-icon" href={PERSONAL.images.avatar} />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="canonical" href="https://www.juliall.dev/">
+    <link rel="canonical" href={PERSONAL.site} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
@@ -40,16 +40,16 @@ const { description, title, keywords } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={`${Astro.url.origin}/julian.avif`} />
-    <meta property="og:site_name" content="Hugo Julian llanten Idrobo" />
+    <meta property="og:image" content={`${Astro.url.origin}${PERSONAL.images.avatar}`} />
+    <meta property="og:site_name" content={PERSONAL.fullName} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${Astro.url.origin}/julian.avif`} />
-    <meta name="twitter:site" content="@hugojulians" />
-    <meta name="twitter:creator" content="@hugojulians" />
+    <meta name="twitter:image" content={`${Astro.url.origin}${PERSONAL.images.avatar}`} />
+    <meta name="twitter:site" content={PERSONAL.twitter} />
+    <meta name="twitter:creator" content={PERSONAL.twitter} />
 
     <title>{title}</title>
     <ClientRouter />
@@ -61,86 +61,9 @@ const { description, title, keywords } = Astro.props;
       bg-gray-50 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(250,204,21,0.12),rgba(255,255,255,0))]
       dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
-    >
-    </div>
+    ></div>
     <Header />
     <slot />
     <Footer />
-    <style is:global>
-      :root {
-        color-scheme: light dark;
-      }
-
-      html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        color: rgba(17, 17, 17, 0.9);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overscroll-behavior: none;
-      }
-      
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-
-      #header-nav {
-        animation: blur linear both 0.5s;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
-        }
-      }
-    </style>
   </body>
 </html>

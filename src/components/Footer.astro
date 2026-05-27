@@ -1,25 +1,25 @@
 ---
+import { PERSONAL } from '@/config/personal'
+
 const currentYear = new Date().getFullYear()
 ---
 
-<footer
-  class="mt-16 mb-8 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
->
+<footer class="mt-16 mb-8 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
   <div class="border-t border-gray-200 dark:border-gray-800 pt-8">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600 dark:text-zinc-400">
       <span>
         © {currentYear}
         <a
-          href="https://julianll.dev/"
+          href={PERSONAL.site}
           class="font-medium text-zinc-800 dark:text-zinc-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
-        >Hugo Julian Llantén</a>. Todos los derechos reservados.
+        >{PERSONAL.name}</a>. Todos los derechos reservados.
       </span>
       <ul class="flex items-center gap-5">
         <li>
           <a href="/#sobre-mi" class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">Sobre mí</a>
         </li>
         <li>
-          <a id="contacto" href="mailto:llantenjulian8@gmail.com" class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">Contacto</a>
+          <a id="contacto" href={`mailto:${PERSONAL.email}`} class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">Contacto</a>
         </li>
       </ul>
     </div>
