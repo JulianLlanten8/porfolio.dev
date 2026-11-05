@@ -17,7 +17,7 @@ export const PERSONAL = {
     github: 'https://github.com/JulianLlanten8',
   },
   images: {
-    avatar: '/julian.avif',
+    avatar: '/julian-avatar.avif',
     photo: '/julian-llanten.webp',
   },
 } as const

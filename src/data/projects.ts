@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     description:
       'Grabador de pantalla en la web. Creado con JavaScript y CSS. Utilizando la API de MediaRecorder para grabar la pantalla y el audio.',
     link: 'https://grabador-de-pantalla.julianll.dev/',
-    image: '/projects/graba-midu-lian.webp',
+    image: '/projects/grabador-pantalla.webp',
     tags: ['JAVASCRIPT', 'CSS'],
   },
   {
