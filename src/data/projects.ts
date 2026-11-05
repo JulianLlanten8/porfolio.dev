@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     description:
       'Herramienta web que explora las nuevas APIs de IA integradas en el navegador (Chrome Built-in AI): traductor, corrector, summarizer y más funcionalidades nativas sin depender de servidores externos. Creada con Vue.js y Tailwind CSS.',
     link: 'https://ia.julianll.dev/',
-    image: '/projects/ia_browser_preview.png',
+    image: '/projects/ia-browser-preview.png',
     tags: ['VUE', 'JAVASCRIPT', 'TAILWIND', 'CSS'],
   },
   {
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
       'Lista de todos los personajes de la serie animada Rick and Morty. Creada con Vue.js y Sass CSS. Consumiendo la API de Rick and Morty.',
     link: 'https://rick-and-morty-eql4u8x3h-rick-morty.vercel.app/',
     github: 'https://github.com/https-github-com-JLlanten8/rick-and-morty',
-    image: '/projects/llantenJulian08-Rick&morty.webp',
+    image: '/projects/rick-and-morty.webp',
     tags: ['VUE', 'CSS'],
   },
   {

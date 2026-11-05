@@ -9,7 +9,7 @@ export const PERSONAL = {
   role: 'Analista y diseñador de sistemas de información',
   location: 'Cali, Colombia',
   email: 'hugojulians@gmail.com',
-  cv: '/Hugo_Julian_Llanten-CV.pdf',
+  cv: '/hugo-julian-llanten-cv.pdf',
   site: 'https://julianll.dev/',
   twitter: '@hugojulians',
   social: {
@@ -18,6 +18,6 @@ export const PERSONAL = {
   },
   images: {
     avatar: '/julian.avif',
-    photo: '/Julian_Llanten.webp',
+    photo: '/julian-llanten.webp',
   },
 } as const
