@@ -43,7 +43,7 @@ import DownloadPill from '@/components/DownloadPill.astro'
 
     <!-- Fotografía / Avatar con encuadre técnico -->
     <div class="relative shrink-0">
-      <div class="relative size-24 sm:size-28 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-md">
+      <div class="relative size-24 sm:size-28 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-sm">
         <img
           class="w-full h-full object-cover"
           src={PERSONAL.images.avatar}
@@ -82,10 +82,36 @@ import DownloadPill from '@/components/DownloadPill.astro'
       Descargar CV (PDF)
     </DownloadPill>
 
-    <SocialPill href={`mailto:${PERSONAL.email}`} aria-label="Enviar correo electrónico a Julián">
-      <MailIcon class="size-4" />
-      Contacto
-    </SocialPill>
+    <!-- Botón de Contacto con Copiado Directo -->
+    <div class="relative inline-flex items-center">
+      <SocialPill href={`mailto:${PERSONAL.email}`} aria-label="Enviar correo electrónico a Julián">
+        <MailIcon class="size-4" />
+        Contacto
+      </SocialPill>
+      <button
+        type="button"
+        id="copy-email-btn"
+        aria-label="Copiar correo electrónico al portapapeles"
+        title="Copiar email al portapapeles"
+        class="ml-1 p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+      >
+        <svg id="copy-icon" class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+        <svg id="check-icon" class="size-3.5 text-emerald-500 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </button>
+      <span
+        id="copy-toast"
+        role="status"
+        aria-live="polite"
+        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-mono-tech bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded shadow-sm opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap"
+      >
+        ¡Copiado!
+      </span>
+    </div>
 
     <SocialPill href={PERSONAL.social.github} aria-label="Visitar el perfil de GitHub de Julián">
       <GitHubIcon class="size-4" />
@@ -98,3 +124,28 @@ import DownloadPill from '@/components/DownloadPill.astro'
     </SocialPill>
   </nav>
 </div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const copyBtn = document.getElementById('copy-email-btn')
+    const copyIcon = document.getElementById('copy-icon')
+    const checkIcon = document.getElementById('check-icon')
+    const copyToast = document.getElementById('copy-toast')
+
+    if (!copyBtn || !copyIcon || !checkIcon || !copyToast) return
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('hugojulians@gmail.com')
+        copyIcon.classList.add('hidden')
+        checkIcon.classList.remove('hidden')
+        copyToast.classList.remove('opacity-0')
+        setTimeout(() => {
+          copyIcon.classList.remove('hidden')
+          checkIcon.classList.add('hidden')
+          copyToast.classList.add('opacity-0')
+        }, 2000)
+      } catch (_) {}
+    })
+  })
+</script>
