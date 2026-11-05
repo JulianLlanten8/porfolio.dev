@@ -24,7 +24,7 @@ const { description, title, keywords } = Astro.props
     <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content={PERSONAL.fullName} />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#090d16" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -72,13 +72,16 @@ const { description, title, keywords } = Astro.props
     <ClientRouter />
   </head>
 
-  <body class="relative text-black dark:text-white">
+  <body class="relative min-h-screen text-slate-900 dark:text-slate-100 bg-[#f8fafc] dark:bg-[#090d16] selection:bg-sky-500/20 selection:text-sky-900 dark:selection:text-sky-100">
+    <!-- Fondo estructural sutil de ingeniería -->
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full
-      bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(250,204,21,0.12),rgba(255,255,255,0))]
-      dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
-    ></div>
+      aria-hidden="true"
+      class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(56,189,248,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(14,165,233,0.12),rgba(9,13,22,0))]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f015_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f015_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b20_1px,transparent_1px),linear-gradient(to_bottom,#1e293b20_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+    </div>
+
     <Header />
     <slot />
     <Footer />

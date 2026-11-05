@@ -2,60 +2,99 @@
 import { PERSONAL } from '@/config/personal'
 import Badge from '@/components/Badge.astro'
 import LinkedInIcon from '@/components/icons/LinkedIn.astro'
+import GitHubIcon from '@/components/icons/GitHub.astro'
 import MailIcon from '@/components/icons/Mail.astro'
 import Download from '@/components/icons/Download.astro'
 import SocialPill from '@/components/SocialPill.astro'
 import DownloadPill from '@/components/DownloadPill.astro'
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-6 items-center">
-    <div class="relative">
-      <span class="absolute inset-0 rounded-full animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,#eab308,#facc15,#fde68a,#eab308)] blur-[2px] opacity-70"></span>
-      <picture class="relative block rounded-full w-16 h-16 overflow-hidden ring-2 ring-yellow-400/60 shadow-lg shadow-yellow-500/20">
-        <img
-          class="w-full h-full object-cover rounded-full"
-          src={PERSONAL.images.avatar}
-          alt={`${PERSONAL.name} — ${PERSONAL.role}`}
-          width="64"
-          height="64"
-        />
-      </picture>
-    </div>
+<div class="flex flex-col gap-8">
+  <!-- Cabecera de estado y localización -->
+  <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
     <a
       href={PERSONAL.social.linkedin}
       target="_blank"
-      rel="noopener"
-      class="flex items-center transition hover:scale-105"
+      rel="noopener noreferrer"
+      class="transition hover:opacity-85 focus:outline-none"
+      aria-label="Ver perfil de LinkedIn"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>Disponible para proyectos y consultoría</Badge>
     </a>
+    <span class="font-mono-tech text-slate-500 dark:text-slate-400">
+      {PERSONAL.location} · UTC-5
+    </span>
   </div>
 
-  <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-    <span class="text-gray-800 dark:text-white">Hey, soy </span>
-    <span class="bg-gradient-to-r from-yellow-500 via-yellow-400 to-amber-300 bg-clip-text text-transparent">{PERSONAL.nameShort}</span>
-    <span class="text-gray-800 dark:text-white"> 👋</span>
-  </h1>
+  <!-- Identidad y titular -->
+  <div class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-6">
+    <div class="flex-1">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+        {PERSONAL.name}
+      </h1>
+      <p class="mt-2 text-lg sm:text-xl font-medium text-sky-700 dark:text-sky-400 tracking-tight">
+        {PERSONAL.role}
+      </p>
 
-  <p class="mt-6 text-xl leading-relaxed text-gray-700 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-600 [&>strong]:font-semibold dark:text-gray-300">
-    +4 años de experiencia.
-    <strong>{PERSONAL.role}</strong> de {PERSONAL.location}.
-    Especializado en análisis de datos, diseño y desarrollo de sistemas de información.
-  </p>
+      <p class="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl text-pretty">
+        Diseño arquitecturas de software robustas y desarrollo aplicaciones web con enfoque en rendimiento, modelado de datos e inteligencia artificial nativa. Convierto problemas complejos de negocio en herramientas digitales precisas y escalables.
+      </p>
+    </div>
 
-  <nav class="flex flex-wrap gap-3 mt-8">
-    <SocialPill href={`mailto:${PERSONAL.email}`} aria-label="Enviar correo electrónico a Julian">
-      <MailIcon class="size-4 md:size-5" />
-      Contáctame
+    <!-- Fotografía / Avatar con encuadre técnico -->
+    <div class="relative shrink-0">
+      <div class="relative size-24 sm:size-28 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-md">
+        <img
+          class="w-full h-full object-cover"
+          src={PERSONAL.images.avatar}
+          alt={`${PERSONAL.name} — ${PERSONAL.role}`}
+          width="112"
+          height="112"
+          loading="eager"
+        />
+      </div>
+      <div class="absolute -bottom-1 -right-1 size-5 rounded-md bg-white dark:bg-[#090d16] border border-slate-200 dark:border-slate-800 flex items-center justify-center">
+        <span class="size-2 rounded-full bg-emerald-500"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Métricas de ingeniería / Señales técnicas -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 py-4 border-y border-slate-200/80 dark:border-slate-800/80">
+    <div class="flex flex-col gap-0.5">
+      <span class="font-mono-tech text-xs text-slate-500 dark:text-slate-400">TRAYECTORIA</span>
+      <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">+4 años en producción</span>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <span class="font-mono-tech text-xs text-slate-500 dark:text-slate-400">ESPECIALIDAD</span>
+      <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Arquitectura Full Stack & IA</span>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <span class="font-mono-tech text-xs text-slate-500 dark:text-slate-400">SECTORES CLAVE</span>
+      <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Salud, E-commerce & Backoffice</span>
+    </div>
+  </div>
+
+  <!-- Acciones y enlaces -->
+  <nav class="flex flex-wrap items-center gap-2.5 pt-1">
+    <DownloadPill href={PERSONAL.cv} download>
+      <Download class="size-4" />
+      Descargar CV (PDF)
+    </DownloadPill>
+
+    <SocialPill href={`mailto:${PERSONAL.email}`} aria-label="Enviar correo electrónico a Julián">
+      <MailIcon class="size-4" />
+      Contacto
     </SocialPill>
-    <SocialPill href={PERSONAL.social.linkedin} aria-label="Visitar el perfil de LinkedIn de Julian (abre en nueva ventana)">
-      <LinkedInIcon class="size-4 md:size-5" />
+
+    <SocialPill href={PERSONAL.social.github} aria-label="Visitar el perfil de GitHub de Julián">
+      <GitHubIcon class="size-4" />
+      GitHub
+    </SocialPill>
+
+    <SocialPill href={PERSONAL.social.linkedin} aria-label="Visitar el perfil de LinkedIn de Julián">
+      <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
-    <DownloadPill href={PERSONAL.cv} download>
-      <Download class="size-4 md:size-5" />
-      Currículum Vitae
-    </DownloadPill>
   </nav>
 </div>

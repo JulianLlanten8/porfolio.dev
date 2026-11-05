@@ -1,5 +1,16 @@
 ---
-const { href } = Astro.props;
+interface Props {
+  href: string
+  variant?: 'primary' | 'secondary'
+}
+
+const { href, variant = 'secondary' } = Astro.props
+
+const baseClasses = "inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 active:scale-[0.98]"
+
+const variantClasses = variant === 'primary'
+  ? "text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-white shadow-sm"
+  : "text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 hover:text-slate-950 dark:hover:text-white"
 ---
 
 <a
@@ -7,7 +18,7 @@ const { href } = Astro.props;
   role="link"
   target="_blank"
   rel="noopener noreferrer"
-  class="inline-flex items-center justify-center gap-2 px-3 py-1.5 text-sm font-medium text-white transition-all duration-200 bg-gray-800 dark:bg-gray-700 border border-gray-600 dark:border-gray-500 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 hover:border-yellow-500/50 hover:shadow-sm hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/80 focus-visible:ring-offset-2 active:scale-95 max-w-fit"
+  class={`${baseClasses} ${variantClasses}`}
 >
   <slot />
 </a>

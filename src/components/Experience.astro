@@ -3,12 +3,12 @@ import { EXPERIENCE } from '@/data/experience'
 import ExperienceItem from './ExperienceItem.astro'
 ---
 
-<ol class="relative mt-16">
-  {
-    EXPERIENCE.map((experience) => (
-      <li>
+<div class="rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/60 dark:bg-[#0c1220]/60 p-6 md:p-8 backdrop-blur-xs">
+  <div class="flex flex-col">
+    {
+      EXPERIENCE.map((experience) => (
         <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
-</ol>
+      ))
+    }
+  </div>
+</div>

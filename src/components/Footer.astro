@@ -4,24 +4,37 @@ import { PERSONAL } from '@/config/personal'
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="mt-16 mb-8 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
-  <div class="border-t border-gray-200 dark:border-gray-800 pt-8">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600 dark:text-zinc-400">
-      <span>
-        © {currentYear}
-        <a
-          href={PERSONAL.site}
-          class="font-medium text-zinc-800 dark:text-zinc-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
-        >{PERSONAL.name}</a>. Todos los derechos reservados.
+<footer class="mt-24 sm:mt-32 mb-10 w-full mx-auto container max-w-4xl px-4 sm:px-6">
+  <div class="border-t border-slate-200/80 dark:border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+    <div class="flex items-center gap-2">
+      <span class="font-mono-tech font-semibold text-slate-800 dark:text-slate-200">
+        {PERSONAL.nameShort}
       </span>
-      <ul class="flex items-center gap-5">
-        <li>
-          <a href="/#sobre-mi" class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">Sobre mí</a>
-        </li>
-        <li>
-          <a id="contacto" href={`mailto:${PERSONAL.email}`} class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">Contacto</a>
-        </li>
-      </ul>
+      <span>·</span>
+      <span>© {currentYear} {PERSONAL.fullName}</span>
     </div>
+
+    <ul class="flex items-center gap-6">
+      <li>
+        <a href="#proyectos" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a href="#experiencia" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+          Experiencia
+        </a>
+      </li>
+      <li>
+        <a href="#sobre-mi" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+          Sobre mí
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${PERSONAL.email}`} class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+          Contacto
+        </a>
+      </li>
+    </ul>
   </div>
 </footer>

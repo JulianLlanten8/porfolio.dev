@@ -1,40 +1,40 @@
 /**
  * Configuración de tecnologías/tags usados en los proyectos.
- * Añade aquí nuevas tecnologías y se propagarán automáticamente.
+ * Estilo técnico calibrado con bordes discretos y contrastes legibles.
  */
 import type { TagKey } from '@/types'
 
 export const TAGS: Record<TagKey, { name: string; class: string }> = {
   VUE: {
     name: 'Vue.js',
-    class: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100',
+    class: 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20',
   },
   TAILWIND: {
     name: 'Tailwind CSS',
-    class: 'bg-sky-100 text-sky-900 dark:bg-sky-900 dark:text-sky-100',
+    class: 'bg-sky-500/10 text-sky-800 dark:text-sky-300 border border-sky-500/20',
   },
   CSS: {
-    name: 'CSS',
-    class: 'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100',
+    name: 'CSS3',
+    class: 'bg-blue-500/10 text-blue-800 dark:text-blue-300 border border-blue-500/20',
   },
   JAVASCRIPT: {
     name: 'JavaScript',
-    class: 'bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-100',
+    class: 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20',
   },
   TYPESCRIPT: {
     name: 'TypeScript',
-    class: 'bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-100',
+    class: 'bg-indigo-500/10 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20',
   },
   REACT: {
     name: 'React',
-    class: 'bg-cyan-100 text-cyan-900 dark:bg-cyan-900 dark:text-cyan-100',
+    class: 'bg-cyan-500/10 text-cyan-800 dark:text-cyan-300 border border-cyan-500/20',
   },
   NEXTJS: {
     name: 'Next.js',
-    class: 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+    class: 'bg-slate-500/10 text-slate-800 dark:text-slate-300 border border-slate-500/20',
   },
   LARAVEL: {
     name: 'Laravel',
-    class: 'bg-red-100 text-red-900 dark:bg-red-900 dark:text-red-100',
+    class: 'bg-rose-500/10 text-rose-800 dark:text-rose-300 border border-rose-500/20',
   },
 }

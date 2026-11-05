@@ -6,43 +6,72 @@ import Experience from '@/components/Experience.astro'
 import Projects from '@/components/Projects.astro'
 import AboutMe from '@/components/AboutMe.astro'
 import SectionContainer from '@/components/SectionContainer.astro'
-import Briefcase from '@/components/icons/Briefcase.astro'
-import CodeIcon from '@/components/icons/Code.astro'
-import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 ---
 
 <Layout
-  title={`${PERSONAL.name} | Desarrollador Full Stack Laravel + Vue con 4 años de experiencia`}
-  description="Contrata a Julian Llanten para crear tu idea en un proyecto real, con experiencia en desarrollo de software y diseño de interfaces"
-  keywords="Desarrollador web, Desarrollador de software, Diseñador de interfaces, Hugo Julian Llanten Idrobo, JavaScript, React, Nodejs, Vuejs, Astro, HTML, CSS, Laravel, Php, SQL, Figma, Adobe XD"
+  title={`${PERSONAL.name} | Analista y Diseñador de Sistemas · Full Stack Developer`}
+  description="Portafolio de Hugo Julián Llantén. Analista y diseñador de sistemas de información en Cali, Colombia. Especialista en arquitectura web, salud, e-commerce e IA local en el navegador."
+  keywords="Hugo Julian Llanten Idrobo, Analista de sistemas, Desarrollador Full Stack, Arquitectura de software, Vue.js, Laravel, React, TypeScript, Astro, Cali Colombia, Chrome Built-in AI"
 >
-  <main class="mx-auto max-w-4xl px-4">
-    <SectionContainer class="py-16 md:py-36">
+  <main class="mx-auto max-w-4xl px-4 sm:px-6">
+    <!-- Hero Principal -->
+    <SectionContainer class="pt-24 sm:pt-32 pb-16 sm:pb-24">
       <Hero />
     </SectionContainer>
 
-    <div class="space-y-28">
-      <SectionContainer id="experiencia">
-        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
-          <Briefcase class="size-8 text-yellow-500" />
-          Experiencia laboral
-        </h2>
-        <Experience />
-      </SectionContainer>
-
+    <!-- Secciones de Contenido -->
+    <div class="space-y-24 sm:space-y-32">
+      <!-- 01 / Proyectos -->
       <SectionContainer id="proyectos">
-        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
-          <CodeIcon class="size-7 text-yellow-500" />
-          Proyectos
-        </h2>
+        <header class="mb-8 sm:mb-10">
+          <div class="flex items-center gap-2 mb-2 font-mono-tech text-xs font-semibold text-sky-600 dark:text-sky-400">
+            <span>01</span>
+            <span class="w-6 h-px bg-sky-500/40"></span>
+            <span class="uppercase tracking-wider">Sistemas y Desarrollos</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Proyectos destacados
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl text-pretty">
+            Selección de plataformas, herramientas de IA en el navegador y arquitecturas construidas para resolver necesidades reales.
+          </p>
+        </header>
         <Projects />
       </SectionContainer>
 
+      <!-- 02 / Experiencia -->
+      <SectionContainer id="experiencia">
+        <header class="mb-8 sm:mb-10">
+          <div class="flex items-center gap-2 mb-2 font-mono-tech text-xs font-semibold text-sky-600 dark:text-sky-400">
+            <span>02</span>
+            <span class="w-6 h-px bg-sky-500/40"></span>
+            <span class="uppercase tracking-wider">Trayectoria Profesional</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Experiencia laboral
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl text-pretty">
+            Historial de impacto técnico, consultoría y desarrollo en organizaciones e iniciativas tecnológicas.
+          </p>
+        </header>
+        <Experience />
+      </SectionContainer>
+
+      <!-- 03 / Sobre mí -->
       <SectionContainer id="sobre-mi">
-        <h2 class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-black/80 dark:text-white">
-          <ProfileCheck class="size-8 text-yellow-500" />
-          Sobre mí
-        </h2>
+        <header class="mb-8 sm:mb-10">
+          <div class="flex items-center gap-2 mb-2 font-mono-tech text-xs font-semibold text-sky-600 dark:text-sky-400">
+            <span>03</span>
+            <span class="w-6 h-px bg-sky-500/40"></span>
+            <span class="uppercase tracking-wider">Perfil & Visión Técnica</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Sobre mí y enfoque
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl text-pretty">
+            El cruce entre análisis de procesos de información, criterio de diseño y desarrollo de software full stack.
+          </p>
+        </header>
         <AboutMe />
       </SectionContainer>
     </div>
