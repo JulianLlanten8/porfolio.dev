@@ -2,12 +2,56 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ─── Variables y Base ───────────────────────────────── */
-:root {
-  color-scheme: light dark;
-  --font-mono-tech: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+/* ─── CSS Next: Registered Custom Properties ─────────── */
+@property --glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
 
+@property --pulse-opacity {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.8;
+}
+
+/* ─── Variables de Sistema y Espacio OKLCH Moderno ───── */
+:root {
+  color-scheme: light;
+  --font-mono-tech: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Espacio de color OKLCH con light-dark() nativo */
+  --color-canvas: light-dark(oklch(98.5% 0.005 240), oklch(14% 0.02 260));
+  --color-surface: light-dark(oklch(100% 0 0), oklch(18% 0.025 260));
+  --color-surface-elevated: light-dark(oklch(96% 0.008 240), oklch(22% 0.03 260));
+
+  --color-text-main: light-dark(oklch(18% 0.03 260), oklch(96% 0.01 240));
+  --color-text-muted: light-dark(oklch(45% 0.03 260), oklch(75% 0.02 240));
+  --color-text-subtle: light-dark(oklch(60% 0.02 260), oklch(58% 0.02 240));
+
+  --color-border-subtle: light-dark(oklch(92% 0.01 240 / 0.8), oklch(28% 0.03 260 / 0.8));
+  --color-border-strong: light-dark(oklch(80% 0.02 240), oklch(38% 0.04 260));
+
+  --color-accent: light-dark(oklch(52% 0.22 255), oklch(75% 0.16 230));
+  --color-signal-live: oklch(68% 0.18 155);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Si el usuario tiene preferencia dark en el sistema y no ha forzado clase */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+  }
+}
+
+/* ─── Base y Tipografía Fluida ───────────────────────── */
 html {
   font-family: "Onest Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
@@ -17,39 +61,40 @@ html {
 }
 
 body {
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: var(--color-text-main);
+  background-color: var(--color-canvas);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overscroll-behavior: none;
+  min-height: 100dvh; /* Dynamic Viewport Height moderno */
+  overscroll-behavior-y: none;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-.dark body {
-  color: #f1f5f9;
-  background-color: #090d16;
+/* Tipografía de balance y legibilidad moderna */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+p {
+  text-wrap: pretty;
 }
 
-/* ─── Tipografía Técnica ──────────────────────────────── */
+/* Tipografía técnica */
 .font-mono-tech {
   font-family: var(--font-mono-tech);
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
 }
 
-/* ─── Selección de texto ─────────────────────────────── */
+/* ─── Propiedades Lógicas y Selección de Texto ────────── */
 ::selection {
-  background-color: rgba(56, 189, 248, 0.25);
+  background-color: color-mix(in oklch, var(--color-accent) 25%, transparent);
   color: inherit;
 }
 
-/* ─── Barra de desplazamiento personalizada ───────────── */
+/* ─── Scrollbar Moderno ──────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  inline-size: 8px; /* Logical property */
 }
 
 ::-webkit-scrollbar-track {
@@ -57,14 +102,56 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.4);
+  background: color-mix(in oklch, var(--color-text-muted) 30%, transparent);
   border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
+  &:hover {
+    background: color-mix(in oklch, var(--color-text-muted) 60%, transparent);
+  }
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(51, 65, 85, 0.6);
+/* ─── Scroll-Driven Animation Nativas (Nivel 1 Compositor) */
+@keyframes section-reveal-keyframes {
+  from {
+    opacity: 0.15;
+    transform: translateY(20px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.7);
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-reveal {
+      view-timeline-name: --section-entry;
+      view-timeline-axis: block;
+      animation: section-reveal-keyframes linear both;
+      animation-timeline: --section-entry;
+      animation-range: entry 5% cover 25%;
+    }
+  }
+}
+
+/* ─── Micro-interacción: Resplandor angular ───────────── */
+@keyframes spin-glow {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.subtle-pulse {
+  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
