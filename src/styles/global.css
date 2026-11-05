@@ -115,8 +115,8 @@ p {
 /* ─── Scroll-Driven Animation Nativas (Nivel 1 Compositor) */
 @keyframes section-reveal-keyframes {
   from {
-    opacity: 0.15;
-    transform: translateY(20px) scale(0.99);
+    opacity: 0.35;
+    transform: translateY(16px) scale(0.995);
   }
   to {
     opacity: 1;
@@ -131,7 +131,7 @@ p {
       view-timeline-axis: block;
       animation: section-reveal-keyframes linear both;
       animation-timeline: --section-entry;
-      animation-range: entry 5% cover 25%;
+      animation-range: entry 0% cover 15%;
     }
   }
 }

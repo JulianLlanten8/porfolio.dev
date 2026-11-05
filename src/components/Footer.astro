@@ -4,37 +4,51 @@ import { PERSONAL } from '@/config/personal'
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="mt-24 sm:mt-32 mb-10 w-full mx-auto container max-w-4xl px-4 sm:px-6">
-  <div class="border-t border-slate-200/80 dark:border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-    <div class="flex items-center gap-2">
+<footer class="mt-24 sm:mt-32 mb-12 w-full mx-auto container max-w-4xl px-4 sm:px-6">
+  <div class="border-t border-slate-200/80 dark:border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+    <div class="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
       <span class="font-mono-tech font-semibold text-slate-800 dark:text-slate-200">
         {PERSONAL.nameShort}
       </span>
-      <span>·</span>
+      <span class="hidden sm:inline">·</span>
       <span>© {currentYear} {PERSONAL.fullName}</span>
+      <span class="hidden sm:inline">·</span>
+      <span class="font-mono-tech text-[11px] text-slate-400 dark:text-slate-500">{PERSONAL.location}</span>
     </div>
 
-    <ul class="flex items-center gap-6">
-      <li>
-        <a href="#proyectos" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-          Proyectos
-        </a>
-      </li>
-      <li>
-        <a href="#experiencia" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-          Experiencia
-        </a>
-      </li>
-      <li>
-        <a href="#sobre-mi" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-          Sobre mí
-        </a>
-      </li>
-      <li>
-        <a href={`mailto:${PERSONAL.email}`} class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-          Contacto
-        </a>
-      </li>
-    </ul>
+    <!-- Enlaces de Conversión y Redes Profesionales -->
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-medium">
+      <a
+        href={PERSONAL.cv}
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+      >
+        CV (PDF)
+      </a>
+      <a
+        href={PERSONAL.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+      >
+        GitHub
+      </a>
+      <a
+        href={PERSONAL.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+      >
+        LinkedIn
+      </a>
+      <a
+        href={`mailto:${PERSONAL.email}`}
+        class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+      >
+        Contacto
+      </a>
+    </div>
   </div>
 </footer>

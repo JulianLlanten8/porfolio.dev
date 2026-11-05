@@ -88,7 +88,7 @@ import { PERSONAL } from '@/config/personal'
           </a>
         </div>
 
-        <!-- Barra de progreso interactiva y accesible -->
+        <!-- Barra de progreso interactiva, accesible y con soporte scrubbing -->
         <div
           id="audio-progress-container"
           role="slider"
@@ -97,7 +97,7 @@ import { PERSONAL } from '@/config/personal'
           aria-valuemax="100"
           aria-valuenow="0"
           tabindex="0"
-          class="group/track relative w-full h-2 bg-slate-200/80 dark:bg-slate-800/80 rounded-full cursor-pointer overflow-hidden transition-all hover:h-2.5"
+          class="group/track relative w-full h-2 bg-slate-200/80 dark:bg-slate-800/80 rounded-full cursor-pointer overflow-hidden transition-all hover:h-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <div
             id="audio-progress-bar"
@@ -108,7 +108,7 @@ import { PERSONAL } from '@/config/personal'
 
       <!-- Controles Principales de Reproducción -->
       <div class="flex items-center justify-between pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-        <!-- Grupo de Transporte: -10s, Play/Pause, +10s -->
+        <!-- Grupo de Transporte: -10s, Play/Pause, +10s con Touch Targets amplios -->
         <div class="flex items-center gap-1.5 sm:gap-2">
           <!-- Retroceder 10 segundos -->
           <button
@@ -116,7 +116,7 @@ import { PERSONAL } from '@/config/personal'
             id="rewind-btn"
             aria-label="Retroceder 10 segundos"
             title="Retroceder 10 segundos"
-            class="audio-sub-button size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
+            class="audio-sub-button size-9 sm:size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
           >
             <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" />
@@ -144,7 +144,7 @@ import { PERSONAL } from '@/config/personal'
             id="forward-btn"
             aria-label="Adelantar 10 segundos"
             title="Adelantar 10 segundos"
-            class="audio-sub-button size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
+            class="audio-sub-button size-9 sm:size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
           >
             <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M13 17l5-5-5-5M6 17l5-5-5-5" />
@@ -160,19 +160,19 @@ import { PERSONAL } from '@/config/personal'
             id="speed-btn"
             aria-label="Cambiar velocidad de reproducción. Actual: 1x"
             title="Cambiar velocidad de reproducción"
-            class="px-2 py-1 rounded-md text-xs font-mono-tech font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            class="h-8 px-2 py-1 rounded-md text-xs font-mono-tech font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
           >
             <span id="speed-text">1.0x</span>
           </button>
 
-          <!-- Control de Volumen con Mute y Slider -->
+          <!-- Control de Volumen con Mute y Slider adaptativo (oculto en móvil) -->
           <div class="flex items-center gap-1.5 group/volume relative">
             <button
               type="button"
               id="mute-btn"
               aria-label="Silenciar o activar sonido"
               title="Silenciar sonido"
-              class="audio-sub-button size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
+              class="audio-sub-button size-9 sm:size-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
             >
               <!-- Icono volumen alto -->
               <svg id="volume-high-icon" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -187,7 +187,7 @@ import { PERSONAL } from '@/config/personal'
               </svg>
             </button>
 
-            <!-- Slider de Volumen fluido -->
+            <!-- Slider de Volumen fluido (visible en tablet/desktop, oculto en mobile) -->
             <input
               type="range"
               id="volume-slider"
@@ -196,7 +196,7 @@ import { PERSONAL } from '@/config/personal'
               step="0.05"
               value="1"
               aria-label="Nivel de volumen"
-              class="w-14 sm:w-16 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-600 dark:accent-sky-400"
+              class="hidden sm:block w-14 sm:w-16 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-600 dark:accent-sky-400"
             />
           </div>
         </div>
@@ -266,6 +266,7 @@ import { PERSONAL } from '@/config/personal'
     let previousVolume = 1
     const speeds = [1.0, 1.25, 1.5, 2.0]
     let currentSpeedIndex = 0
+    let isDragging = false
 
     const formatTime = (seconds: number) => {
       if (isNaN(seconds) || seconds <= 0) return '0:00'
@@ -301,8 +302,9 @@ import { PERSONAL } from '@/config/personal'
 
     // Actualización de progreso
     audio.addEventListener('timeupdate', () => {
+      if (isDragging) return
       const current = audio.currentTime
-      const duration = audio.duration || 135 // Fallback de ~2:15 si la metadata tarda
+      const duration = audio.duration || 135
       const percent = duration > 0 ? (current / duration) * 100 : 0
       progressBar.style.width = `${percent}%`
       progressContainer.setAttribute('aria-valuenow', Math.round(percent).toString())
@@ -319,17 +321,39 @@ import { PERSONAL } from '@/config/personal'
       audio.currentTime = 0
     })
 
-    // Salto al hacer clic o arrastrar en la barra de progreso
-    const seek = (e: MouseEvent) => {
+    // Scrubbing interactivo continuo con eventos Pointer
+    const seekWithPointer = (e: PointerEvent) => {
       const rect = progressContainer.getBoundingClientRect()
       const clickX = Math.max(0, Math.min(e.clientX - rect.left, rect.width))
       const percent = clickX / rect.width
       const duration = audio.duration || 135
       audio.currentTime = percent * duration
       progressBar.style.width = `${percent * 100}%`
+      progressContainer.setAttribute('aria-valuenow', Math.round(percent * 100).toString())
+      timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration)}`
     }
 
-    progressContainer.addEventListener('click', seek)
+    progressContainer.addEventListener('pointerdown', (e) => {
+      isDragging = true
+      seekWithPointer(e)
+      progressContainer.setPointerCapture(e.pointerId)
+    })
+
+    progressContainer.addEventListener('pointermove', (e) => {
+      if (isDragging) {
+        seekWithPointer(e)
+      }
+    })
+
+    const stopDragging = (e: PointerEvent) => {
+      if (isDragging) {
+        isDragging = false
+        try { progressContainer.releasePointerCapture(e.pointerId) } catch (_) {}
+      }
+    }
+
+    progressContainer.addEventListener('pointerup', stopDragging)
+    progressContainer.addEventListener('pointercancel', stopDragging)
 
     // Retroceder y adelantar 10 segundos
     rewindBtn?.addEventListener('click', () => {
