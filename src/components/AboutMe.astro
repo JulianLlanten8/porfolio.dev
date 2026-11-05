@@ -33,7 +33,7 @@ const personalImageAlt = "Hugo Julian Llanten - Analista diseñador de sistemas"
     </p>
   </div>
 
-  <section class="relative inline-block order-1 md:order-2 flex-shrink-0">
+  <section class="relative inline-block order-1 md:order-2 shrink-0">
     <img
       width="200"
       height="200"
@@ -43,8 +43,11 @@ const personalImageAlt = "Hugo Julian Llanten - Analista diseñador de sistemas"
       style="object-position: 50% 50%"
     />
 
-    <audio controls
-    class="absolute bottom-2 px-0 left-1 place-self-center w-60 opacity-50 hover:opacity-100 rounded-md">
+    <audio
+      controls
+      preload="none"
+      class="absolute bottom-2 px-0 left-1 place-self-center w-60 opacity-50 hover:opacity-100 rounded-md"
+    >
       <source src="/La_navaja_suiza-analisis.mp3" type="audio/mpeg">
       Tu navegador no soporta audio.
     </audio>

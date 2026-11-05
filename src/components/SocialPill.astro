@@ -1,8 +1,19 @@
+---
+interface Props {
+  href: string
+  'aria-label'?: string
+  download?: boolean | string
+  class?: string
+}
+
+const { 'aria-label': ariaLabel, ...rest } = Astro.props
+---
+
 <a
-  {...Astro.props}
+  {...rest}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Contactarme por correo electrónico (abre en nueva ventana)"
+  aria-label={ariaLabel}
   role="link"
   class="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-gray-800 transition-all duration-200 bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-sm font-medium hover:bg-yellow-50 hover:border-yellow-400 hover:text-yellow-700 dark:hover:bg-yellow-500/10 dark:hover:border-yellow-500/60 dark:hover:text-yellow-300 hover:shadow-sm hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/80 focus-visible:ring-offset-2 active:scale-95 max-w-fit"
 >

@@ -45,11 +45,11 @@ import DownloadPill from '@/components/DownloadPill.astro'
   </p>
 
   <nav class="flex flex-wrap gap-3 mt-8">
-    <SocialPill href={`mailto:${PERSONAL.email}`}>
+    <SocialPill href={`mailto:${PERSONAL.email}`} aria-label="Enviar correo electrónico a Julian">
       <MailIcon class="size-4 md:size-5" />
       Contáctame
     </SocialPill>
-    <SocialPill href={PERSONAL.social.linkedin}>
+    <SocialPill href={PERSONAL.social.linkedin} aria-label="Visitar el perfil de LinkedIn de Julian (abre en nueva ventana)">
       <LinkedInIcon class="size-4 md:size-5" />
       LinkedIn
     </SocialPill>

@@ -53,7 +53,7 @@ const { description, title, keywords } = Astro.props
     <meta name="twitter:creator" content={PERSONAL.twitter} />
 
     <!-- Datos Estructurados JSON-LD (SEO) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
       "name": PERSONAL.fullName,
