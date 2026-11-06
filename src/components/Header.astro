@@ -52,7 +52,7 @@ const navItems = [
     const sections = document.querySelectorAll('section[id]')
     const navItems = document.querySelectorAll('header nav a.nav-link')
 
-    const callback = (entries: any[]) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const currentId = entry.target.id

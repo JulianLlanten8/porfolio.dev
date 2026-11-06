@@ -91,6 +91,7 @@ import DownloadPill from '@/components/DownloadPill.astro'
       <button
         type="button"
         id="copy-email-btn"
+        data-email={PERSONAL.email}
         aria-label="Copiar correo electrónico al portapapeles"
         title="Copiar email al portapapeles"
         class="ml-1 p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
@@ -127,16 +128,19 @@ import DownloadPill from '@/components/DownloadPill.astro'
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const copyBtn = document.getElementById('copy-email-btn')
+    const copyBtn = document.getElementById('copy-email-btn') as HTMLButtonElement | null
     const copyIcon = document.getElementById('copy-icon')
     const checkIcon = document.getElementById('check-icon')
     const copyToast = document.getElementById('copy-toast')
 
     if (!copyBtn || !copyIcon || !checkIcon || !copyToast) return
 
+    const email = copyBtn.dataset.email
+    if (!email) return
+
     copyBtn.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText('hugojulians@gmail.com')
+        await navigator.clipboard.writeText(email)
         copyIcon.classList.add('hidden')
         checkIcon.classList.remove('hidden')
         copyToast.classList.remove('opacity-0')
